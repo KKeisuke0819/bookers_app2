@@ -1,0 +1,22 @@
+<div class="col-xs-3">
+    <h2>User info</h2>
+    <h3 class="photo">
+      <%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpeg" %>
+    </h3>
+    <h4 class="name_tag">name</h4>
+    <h3 class="profile-name"><%= user.name %></h3>
+    <h4 class="intro_tag">introduction</h4>
+    <h3 class="introduction"><%= user.introduction %></h3>
+
+<%= link_to "編集", edit_user_path(user.id), class: "btn btn-lg btn-primary" %>
+
+<h2>New book</h2>
+<%= form_for(book) do |f| %>
+    <%= f.label  :タイトル %><br>
+    <%= f.text_field :title %><br>
+    <%= f.label  :内容 %><br>
+    <%= f.text_area :body %>
+    <%= f.submit %>
+<% end %>
+
+</div>

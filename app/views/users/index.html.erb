@@ -1,0 +1,23 @@
+<div class="row">
+    <%= render 'books/form', book: @book, user: @user %>
+    <div class="col-xs-9">
+      <h1>user一覧</h1>
+ <table class="table table-striped">
+  <tr>
+    <th>image</th>
+    <th>name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= attachment_image_tag user, :profile_image, :fill, 30, 30, fallback: "no_image.jpeg" %></td>
+      <td><%= user.name %></td>
+      <!-- <td><%= user.introduction %></td> -->
+      <td><%= link_to 'Show', user_path(user.id) %></td>
+    </tr>
+  <% end %>
+  </table>
+ </div>
+</div>
